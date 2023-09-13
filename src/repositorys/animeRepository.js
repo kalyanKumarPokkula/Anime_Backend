@@ -21,6 +21,16 @@ class AnimeRepository {
       throw error;
     }
   }
+
+  async getAnimes() {
+    try {
+      let animes = await Anime.find({});
+      return animes;
+    } catch (error) {
+      console.log("something went wrong in the AnimeRepo");
+      throw error;
+    }
+  }
 }
 
 export default AnimeRepository;

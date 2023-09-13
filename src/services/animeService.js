@@ -42,6 +42,16 @@ class AnimeService {
       throw error;
     }
   }
+
+  async getAnimes(id) {
+    try {
+      let anime = await this.animeRepository.getAnimes();
+      return anime;
+    } catch (error) {
+      console.log("something went wrong in the AnimeServ");
+      throw error;
+    }
+  }
 }
 
 export default AnimeService;

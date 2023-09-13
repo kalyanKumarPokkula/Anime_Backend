@@ -4,7 +4,7 @@ const animeTypeSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      enum: ["Tv", "Movies"],
+      enum: ["Tv", "Movie"],
       required: true,
     },
 

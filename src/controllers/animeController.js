@@ -10,15 +10,11 @@ const animeService = new AnimeService();
 const create = async (req, res) => {
   try {
     console.log(req.file);
-    // console.log(req.body);
     let result = await uploadFile(req.file);
-    console.log(result);
     req.body.imageURL = result.Location;
     req.body.totalEpisodes = req.body.episodes;
     req.body.episodes = [];
-    console.log(req.body);
     let response = await animeService.create(req.body);
-    console.log(response);
     return res
       .status(201)
       .json(commonResponseMessage(response, "Successfully created a anime"));
@@ -53,4 +49,22 @@ const getAnime = async (req, res) => {
   }
 };
 
-export { create, getAnime };
+const getAnimesRandomly = async (req, res) => {
+  try {
+    let response = await animeService.getAnimes();
+    return res
+      .status(200)
+      .json(commonResponseMessage(response, "Successfully fetched a animes"));
+  } catch (error) {
+    return res
+      .status(500)
+      .json(
+        commonErrorResponseMessage(
+          error,
+          "Something went wrong not able to get a animes"
+        )
+      );
+  }
+};
+
+export { create, getAnime, getAnimesRandomly };

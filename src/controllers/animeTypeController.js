@@ -10,7 +10,6 @@ const getAnimes = async (req, res) => {
   try {
     console.log(req.params.type);
     let response = await animeTypeService.getAnimesByType(req.params.type);
-    console.log(response);
     return res
       .status(200)
       .json(commonResponseMessage(response, "Successfully fetched  a animes"));
