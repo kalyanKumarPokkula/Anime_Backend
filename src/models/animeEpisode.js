@@ -2,9 +2,13 @@ import mongoose from "mongoose";
 
 const animeEpisodeSchema = new mongoose.Schema(
   {
-    animeName: {
+    animeId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Anime",
+      required: true,
+    },
+    episodeTitle: {
+      type: String,
       required: true,
     },
     episodeNumber: {

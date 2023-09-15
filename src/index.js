@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api", router);
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   connect();
   console.log(`Server started at port ${PORT}`);
 });

@@ -9,7 +9,9 @@ const animeService = new AnimeService();
 
 const create = async (req, res) => {
   try {
+    console.log(req);
     console.log(req.file);
+    console.log(typeof req.body.images);
     let result = await uploadFile(req.file);
     req.body.imageURL = result.Location;
     req.body.totalEpisodes = req.body.episodes;
